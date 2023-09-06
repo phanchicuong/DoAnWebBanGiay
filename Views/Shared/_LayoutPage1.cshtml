@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color:black">
+                <div class="col-4">
+
+                    <a style="padding-left:250px" href="/home/Trangchu"> <img style="width:100px" src="~/Hinh/logo1.png" /></a>
+                </div>
+                <div class="col-7">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a style="color:white" class="nav-link" href="/home/Trangchu">Trang Chủ </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a style="color:white" class="nav-link" href="/home/Index">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="/acount/detail/@User.Identity.Name">
+                                    <div class="text-danger">
+                                        @User.Identity.Name
+                                    </div>
+                                </a>
+                                <a class="text-danger" href="/account/LogOut">Đăng XUất</a>
+                            }
+                            else
+                            {
+                                <a href="/account/login" >
+                                    <p>Đăng Nhập</p>
+                                </a>
+                            }
+
+                        </li>
+          
+                        <li class="nav-item">
+                            <a style="color:white" class="nav-link" href="/account/DangKy"><span style="font-size:xx-large">/</span>Đăng Ký </a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white" class="nav-link" href="/GioHang/index"> <img src="~/hinh/cart-download-regular-24.png" /> </a>
+                        </li>
+                        <li>
+                            <form class="d-flex form-inline flex-row  flex-wrap"
+                                  action="/home/index">
+                                <input type="search"
+                                       class="from-control w-auto"
+                                       id="search"
+                                       name="search"
+                                       value="@ViewBag.search"
+                                       placeholder="Tìm Kiếm" />
+                                <button style="color:white" type="submit" class="btn btn-outline-dark mx-2">Tìm</button>
+                            </form>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="text-center p-2">
+            @RenderBody()
+        </div>
+        <div style="text-align:center">
+            <img src="~/Hinh/1last.png" />
+        </div>
+        <div id="Footer" style="background-color: black">
+            <table cellpadding="5px" class="container">
+                <tr>
+                    <td valign="top"><img src="~/Hinh/Baner2.png" style="width:60%" /></td>
+                    <td style="font-size:13px; color:#FFF">
+                        © 2022 - CÔNG TY Sneaker Shop
+
+                        <p> Giấy CNĐKDN: 090123245 -   Ngày cấp: 25/11/2020 - Cơ quan cấp: Phòng Đăng Ký Kinh Doanh Sở Kế Hoạch và Đầu Tư TP.HCM</p>
+
+                        <p> Địa chỉ đăng ký kinh doanh: 140 Lê Trọng Tấn , Phường Tây Thạnh, Quận Tân Phú, TP.HCM </p>
+
+                        <p> Điện thoại: (028) 3868 4857 - Mua hàng: (028) 7307 1441 - Email: Sneaker Shop@Gmail.com</p>
+                    </td>
+                    <td valign="top">
+                        <img src="~/Hinh/A3.png" style="width:90%; float:right; padding-right:10px; " />
+                    </td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+   
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

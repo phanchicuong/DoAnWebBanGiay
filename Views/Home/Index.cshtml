@@ -1,0 +1,77 @@
+﻿@model List<WebsiteBanGiay.Models.chitiet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+
+<div class="container">
+    <div>
+        <img src="~/Hinh/Baner2.png" />
+    </div>
+    <div class="p-2">
+        @foreach (var item in Model)
+        {
+            <a href="/home/detail/@item.MaLoai">
+                <div style="@*border: solid 1px black; border-radius: 5px;*@ width: 350px; height: 250px;  display: inline-block; box-shadow: 2px; text-align: center  " class="card">
+                    <ul style="list-style: none; padding-bottom:10px" class="card-body">
+                        <li>
+                            <img class="card-img-top" style="width:250px; height:150px" src="~/anh/@item.Anh" />
+                        </li>
+                        <li class="card-text" style="color:blue">
+                            @item.TenSP
+                        </li>
+                        <li class="card-title" style="color:red"> @item.Dongia.000VNĐ</li>
+                    </ul>
+                </div>
+            </a>
+
+        }
+        @{ /////Chuyen trang
+            int PrevPage = ViewBag.page - 1;
+            if (PrevPage <= 0)
+            {
+                PrevPage = 1;
+            }
+            int NextPage = ViewBag.page + 1;
+            if (NextPage > ViewBag.TInh)
+            {
+                NextPage = ViewBag.TInh;
+            }
+        }
+        <ul class="pagination justify-content-center p-5">
+            <li class="page-item">
+                <a class="page-link" style="background-color:blue; color:white" href="/home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@PrevPage">
+                    Trước
+                </a>
+            </li>
+            @for (int i = 0; i < ViewBag.TInh; i++)////
+            {
+
+                if (i + 1 == ViewBag.page)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                            @(i + 1)
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                            @(i + 1)
+                        </a>
+                    </li>
+                }
+
+            }
+            <li class="page-item">
+                <a class="page-link" style="background-color:blue; color:white" href="/home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@NextPage">
+                    Sau
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

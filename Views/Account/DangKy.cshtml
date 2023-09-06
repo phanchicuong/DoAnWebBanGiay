@@ -1,0 +1,41 @@
+﻿@model WebsiteBanGiay.ViewModel.DangKy
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+@using (Html.BeginForm("DangKy", "Account", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-5">
+            @Html.LabelFor(row => row.UserName)
+            @Html.TextBoxFor(row => row.UserName, new { placeholder = "Tên Tài Khoản", @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.UserName)
+        </div>
+        <div class="col-5">
+            @Html.LabelFor(row => row.Email)
+            @Html.TextBoxFor(row => row.Email, new { placeholder = "Email", @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.Email)
+        </div>
+        <div class="col-5">
+            @Html.LabelFor(row => row.Password)
+            @Html.PasswordFor(row => row.Password, new { placeholder = "Mật Khẩu", @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.Password)
+        </div>
+        <div class="col-5">
+            @Html.LabelFor(row => row.ConfirmPassword)
+            @Html.PasswordFor(row => row.ConfirmPassword, new { placeholder = "Nhập lại Mật Khẩu", @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.ConfirmPassword)
+        </div>
+        <div class="col-5">
+            @Html.LabelFor(row => row.Phone)
+            @Html.TextBoxFor(row => row.Phone, new { placeholder = "Số Điện Thoại", @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.Phone)
+        </div>
+
+
+    </div>
+    <button type="submit" class="btn btn-secondary">Tạo Tài Khoản</button>
+}
+
+

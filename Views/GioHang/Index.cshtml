@@ -1,0 +1,145 @@
+﻿@model List<WebsiteBanGiay.Models.giohang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@{
+    int aidi = 999;
+    int soluong = 1;
+    int sum = 0;
+    int count = 0;
+    ViewBag.aidi = aidi;
+    ViewBag.soluong = soluong;
+    ViewBag.sum = sum;
+    ViewBag.count = count;
+}
+
+@foreach (var item in Model)
+{
+    ViewBag.count += item.SoLuong;
+}
+@if (Model.Count > 0)
+
+{
+    <div class="row">
+        <div class="col-6">
+            <h2>Giỏ Hàng</h2>
+        </div>
+        <div class="d-flex justify-content-end col-6">
+            <a href="">
+                Xoá Gio Hàng
+            </a>
+        </div>
+    </div>
+    <div class="" style="border:solid gray 1px;">
+        <div style="padding-left: 25px; padding-right: 25px; padding-top: 16px;">
+            <span style="color:orange">
+                <img src="~/Photo/Web/cart-alt-regular-24.png" />Chi tiết giỏ hàng
+            </span>
+
+            <div class="p-4">
+                <a href="/home/trangchu" style="text-decoration:none;background-color:orange;color:black;width:75px;height:75px;">Tiếp tục mua hàng</a>
+                <a href="">Xóa Giỏ Hàng</a>
+            </div>
+            <div style="background-color:lightgray">
+                <div class="row">
+                    <div class="col-3">
+                        <p style="padding-left:15px;">Sản phẩm</p>
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-3">
+                                <p>Đơn giá</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Số lượng</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Tổng giá</p>
+                            </div>
+                            <div class="col-3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div>
+                @foreach (var item in Model)
+                {
+                    <div class="row" style="padding-bottom:25px;">
+                        <div class="col-3">
+                            <div style="border: solid 1px gray; width: 270px; height: 220px;">
+                                <img src="~/Photo/SanPham/@item.chitiet.Anh.Trim()" style="width: 250px; height: 200px; padding-top: 10px; padding-left: 10px" />
+                            </div>
+
+                        </div>
+                        <div class="col-6">
+                            <span style="color:orange ;font-size:x-large">
+                                <b>
+                                    @item.chitiet.TenSP
+                                </b>
+
+                            </span>
+                            <br />
+                            <span>
+                                Mã Sách:  @item.chitiet.MaLoai
+                                <br />
+
+                            </span>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-3">
+                                    @item.chitiet.Dongia.ToString("C")
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" id="@ViewBag.soluong" name="quantity" value="@item.SoLuong" style="width:50px;" />
+                                </div>
+                                <div class="col-3">
+                                    @(Convert.ToDecimal(item.chitiet.Dongia * item.SoLuong).ToString("C"))
+                                </div>
+                                <div class="col-3">
+                                    <button id="@ViewBag.aidi" class="btn_find" style="height:75px;">Cập nhập</button>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#@ViewBag.aidi').click(function () {
+                                                const value = $('#@ViewBag.soluong').val();
+                                                window.location.href = "/GioHang/update?id=@item.chitiet.MaLoai&&quantity=" + value;
+                                            });
+                                        });
+                                           @{
+                                                ViewBag.aidi += 1;
+                                                ViewBag.soluong += 1;
+                                                ViewBag.sum += (Convert.ToDecimal(item.chitiet.Dongia * item.SoLuong));
+                                                ViewBag.count += item.SoLuong;
+                                            }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border-bottom: solid 1px gray; padding-bottom: 25px;">
+
+                        </div>
+                    </div>
+
+
+                }
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+}
+else
+{
+    <h2>Không Có Sản Phẩm</h2>
+}

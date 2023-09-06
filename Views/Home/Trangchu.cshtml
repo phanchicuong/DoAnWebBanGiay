@@ -1,0 +1,227 @@
+﻿@model  List<WebsiteBanGiay.Models.sanpham>
+@{
+    ViewBag.Title = "Trangchu";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+
+<div class="container">
+    <div>
+        <div>
+            <div class="row">
+                <div style="display:inline-block" class="col-9">
+                    <img id="img" onclick=" changeImage() " src="~/Hinh/Baner1.png" alt="" width="950" height="395" style="padding-top:9px;" />
+                </div>
+
+                <div style="display:inline-block" class="col-3">
+                    <div>
+                        <img src="~/Hinh/Baner3.png" width="300" height="200" />
+                    </div>
+                    <div>
+                        <img src="~/Hinh/Baner2.png" width="300" height="200" />
+                    </div>
+                </div>
+            </div>
+            <script>
+                var index = 1;
+                changeImage = function () {
+                    var imgs = ["/Hinh/Baner1.png", "/Hinh/Baner5.png", "/Hinh/Baner4.png"]
+
+                    document.getElementById('img').src = imgs[index];
+                    index++;
+                    if (index == 3) {
+                        index = 0;
+                    }
+
+                }
+                setInterval(changeImage, 1500);/// một giay goi toi 1 lan
+            </script>
+        </div>
+    </div>
+
+
+
+    <div style="">
+        <h2 style="color:red">-----Mẫu Mới Siêu Hot-----</h2>
+        <div>
+            <ul class="list-style:none; display:inline-block">
+                <li style="display:inline-block;">
+                    <a href="#">
+                        <div class="products">
+                            <img style="width:200px" src="~/Anh/giayair1.png" />
+
+                            <div>
+                                <b class="d-flex justify-content-center">
+                                    Giày AIR JORDAN 1 RETRO HIGH OG ‘DARK MOCHA’
+                                </b>
+                            </div>
+
+                            <br>
+                            <br>
+                            <b class="price text-danger"> 50,000.000</b>
+                            <br>
+                        </div>
+                    </a>
+                </li>
+
+                <li style="display: inline-block; margin-left: 52px;">
+                    <a href="#">
+                        <div class="products">
+                            <img style="width:200px" src="~/Anh/giayair2.png" />
+
+                            <div>
+                                <b class="d-flex justify-content-center">
+                                    Giày AIR JORDAN 1 MID GS ‘SCHEMATIC’
+                                </b>
+                            </div>
+
+                            <br>
+                            <br>
+                            <b class="price text-danger"> 58,000.00</b>
+                            <br>
+
+                        </div>
+                    </a>
+                </li>
+
+                <li style="display: inline-block; margin-left:52px;">
+                    <a href="#">
+                        <div class="products">
+                            <img style="width:200px" src="~/Anh/giayair3.png" />
+
+                            <div>
+                                <b class="d-flex justify-content-center">
+                                    Giày NIKE JORDAN 4 RETRO COOL GREY
+                                </b>
+                            </div>
+
+                            <br>
+                            <br>
+                            <b class="price text-danger"> 60,000.00</b>
+                            <br>
+
+                        </div>
+                    </a>
+                </li>
+
+                <li style="display: inline-block; margin-left: 52px;">
+                    <a href="#">
+                        <div class="products">
+                            <img style="width:200px" src="~/Anh/giayair4.png" />
+
+                            <div>
+                                <b class="d-flex justify-content-center">
+                                    Giày AIR JORDAN 1 RETRO HIGH OG UNIVERSITY BLUE
+                                </b>
+                            </div>
+
+                            <br>
+                            <br>
+                            <b class="price text-danger"> 85,000.00</b>
+                            <br>
+
+                        </div>
+                    </a>
+                </li>
+
+                <li style="display: inline-block; margin-left: 52px;">
+                    <a href="#">
+                        <div class="products">
+                            <img style="width:200px" src="~/Anh/giayair5.png" />
+
+                            <div>
+                                <b class="d-flex justify-content-center">
+                                    Giày  AIR JORDAN 1 X OFF-WHITE X RETRO HIGH OG WHITE
+                                </b>
+                            </div>
+
+                            <br>
+                            <br>
+                            <b class="price text-danger"> 150,000.00</b>
+                            <br>
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div>
+        <a href="/home/index" style="margin-left:50px;" class="btn btn-outline-success p-2"> Xem Thêm Sản Phẩm </a>
+    </div>
+</div>
+
+
+
+@*Topsale*@
+
+
+<div class="row bg-light" style="margin-top:30px">
+    <div class="col-6" style="padding-left:300px">
+        <img src="~/Hinh/Baner2.png" />
+    </div>
+    <div class="col-4">
+
+        <div class="section_title" style="margin-top:90px;text-align:center;padding-left:20px;color:black">
+            <h3>Deal Of The Week</h3>
+        </div>
+        <div>
+            <h1 style="color:yellow;padding-left:36px">---------------</h1>
+        </div>
+
+        <div class="GiamGia" style=" padding-top:20px;">
+            <ul class="TimeSale" style="list-style:none;">
+                <li class="d-inline-flex flex-column justify-content-center align-items-center" style="display: inline-block; border-radius: 5px; color: white; background-color: white; width: 70px" class="border border-primary">
+                    <div class-="item">
+                        <h1 style="color:red" id="days">Ngày</h1>
+                        <h4 style="color:black">Ngày</h4>
+                    </div>
+                </li>
+                <li class="d-inline-flex flex-column justify-content-center align-items-center" style="display: inline-block; border-radius: 5px; color: white; background-color: white; width: 70px " class="border border-primary">
+                    <div class-="item">
+                        <h1 style="color:red" id="hours">Giờ</h1>
+                        <h4 style="color:black">Giờ</h4>
+                    </div>
+                </li>
+                <li class="d-inline-flex flex-column justify-content-center align-items-center" style="display: inline-block; border-radius: 5px; color: white; background-color: white; width: 70px " class="border border-primary">
+                    <div class-="item">
+                        <h1 style="color:red" id="minutes">Phút</h1>
+                        <h4 style="color:black">Phút</h4>
+                    </div>
+                </li>
+                <li class="d-inline-flex flex-column justify-content-center align-items-center" style="display: inline-block; border-radius: 5px; color: white; background-color: white; width: 70px " class="border border-primary">
+                    <div class-="item">
+                        <h1 style="color:red" id="seconds">Giây</h1>
+                        <h4 style="color:black">Giây</h4>
+                    </div>
+
+                </li>
+
+
+            </ul>
+        </div>
+        <script>
+                var fuT = new Date("December 27,2022 00:00:00").getTime()
+                setInterval(function () {
+                    var noW = new Date().getTime()
+                    var D = fuT - noW
+                    var days = Math.floor(D / (1000 * 60 * 60 * 24))
+                    var hours = Math.floor(D / (1000 * 60 * 60))
+                    var minutes = Math.floor(D / (1000 * 60))
+                    var seconds = Math.floor(D / (1000))
+
+                    hours %= 24
+                    minutes %= 60
+                    seconds %= 60
+
+                    document.getElementById("days").innerText = days
+                    document.getElementById("hours").innerText = hours
+                    document.getElementById("minutes").innerText = minutes
+                    document.getElementById("seconds").innerText = seconds
+                }, 1000)
+        </script>
+    </div>
+</div>
+
+

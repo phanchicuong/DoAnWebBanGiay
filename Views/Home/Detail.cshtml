@@ -1,0 +1,60 @@
+﻿@model WebsiteBanGiay.Models.chitiet
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="container">
+    <div style="border:solid 1px black; padding:5px">
+        <div style="display:inline-block">
+            <img src="~/Hinh/DT1.png" />
+
+            <div> <img src="~/Anh/" width="300px" /></div>
+
+            <div> <img src="~/Hinh/DT2.png" /></div>
+        </div>
+
+        <div style="display:inline-block; padding-left:5px">
+            <h1> @Model.TenSP </h1>
+            <h2 style="color:red"> @Model.Dongia.000 VNĐ</h2>
+            <button class="btn btn-outline-danger" type="submit" style="width:150px;height:50px; display:inline-block">
+                <span> <a href="/GioHang/AddItem?productId=@Model.MaLoai&&SoLuong=1"> Thêm vào giỏ </a></span>
+            </button>
+            <button class="btn btn-outline-dark" type="submit" style="width:150px;height:50px; display:inline-block">
+                Mua ngay
+            </button>
+            <h3>Tổng Đài Hổ Trợ </h3>
+            <p>
+
+                <img src="~/Hinh/phone-solid-24.png" />
+                hotline <b> 090956546 hoặc 090744589</b>
+            </p>
+            <p>
+                <img src="~/Hinh/time-regular-24.png" />
+                Thời gian làm việc từ 8h00-21h00(thứ 2- chủ nhật)
+            </p>
+
+        </div>
+
+        <div style="display:inline-block; padding-left:5px">
+
+            <h1>Mô tả sản phẩm</h1>
+            <p>Chất liệu: Cotton Compact 2C</p>
+            <p>Thành phần: 100% Cotton</p>
+            <p>- Rất Thân thiện</p>
+            <p>- Thấm hút ẩm</p>
+            <p>- Rất Mềm mại</p>
+            <p>- Kiểm soát mùi</p>
+            <p>- Điều hòa nhiệt</p>
+            <br /><h6>- HƯỚNG DẪN SỬ DỤNG:</h6>+ 1 Nên giặt chung với các sản phẩm cùng màu<br>+ 2 Không nên dùng bột giặt có tính tẩy mạnh<br>+ 3 Nên phơi trong bóng râm để sp bền màu
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
